@@ -18,7 +18,7 @@ return {
             ["K"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
             ["ga"] = {"git_add_file"},
             ["gus"] = {"git_unstage_file"},
-            ["gr"] = {"git_revert_file"},
+            ["gr"] = {"git_revert_file"}, -- add :e command after this to refresh page
             ["gc"] = {"git_commit"},
             ["gp"] = {"git_push"},
             ["gg"] = {"git_commit_and_push"},
