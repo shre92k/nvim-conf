@@ -6,5 +6,25 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
+    },
+    config = function()
+      local status, neo_tree = pcall(require, "neo-tree")
+      if not status then
+        return
+      end
+      neo_tree.setup({
+      window = {
+          mappings = {
+            ["K"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
+            ["ga"] = {"git_add_file"},
+            ["gus"] = {"git_unstage_file"},
+            ["gr"] = {"git_revert_file"},
+            ["gc"] = {"git_commit"},
+            ["gp"] = {"git_push"},
+            ["gg"] = {"git_commit_and_push"},
+          }
+        }
+      })
+      vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal toggle<CR>', { desc = 'open neotree on left' })
+    end,
 }
