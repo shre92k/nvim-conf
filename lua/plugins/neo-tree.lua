@@ -8,8 +8,8 @@ return {
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function()
-      local status, neo_tree = pcall(require, "neo-tree")
-      if not status then
+      local state, neo_tree = pcall(require, "neo-tree")
+      if not state then
         return
       end
       neo_tree.setup({
